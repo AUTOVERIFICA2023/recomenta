@@ -146,8 +146,8 @@ a{color:inherit;text-decoration:none}
 .rating-row{display:flex;gap:8px;align-items:center;margin-top:6px;font-size:12px}
 .meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px;font-size:11px;color:#4f6963}
 .badge{background:#f2f7f6;padding:5px 7px;border-radius:999px}
-.card-actions{display:flex;gap:7px;margin-top:10px}
-.card-actions button{flex:1;padding:9px;border-radius:10px;border:0;font-weight:900;font-size:12px}
+.card-actions{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.card-actions button{flex:1 1 30%;padding:9px 6px;border-radius:10px;border:0;font-weight:900;font-size:11px}
 .menu{background:white;border:1px solid var(--border)!important}
 .routebtn{background:var(--teal);color:white}
 
@@ -353,6 +353,24 @@ a{color:inherit;text-decoration:none}
   .trip-actions .btn{flex:1 1 45%}
 }
 
+
+/* ===== RECOMENTA: selección, reserva y reporte visual ===== */
+.restaurant-card.selected{border:2px solid var(--teal);box-shadow:0 0 0 5px rgba(17,153,142,.10),0 16px 34px rgba(17,153,142,.18);transform:translateY(-3px)}
+.cover{position:relative}.selected-ribbon{position:absolute;left:9px;top:9px;z-index:3;background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900}
+.selection-panel{margin:0 14px 16px;padding:16px;border-radius:18px;background:linear-gradient(135deg,#f0fbf9,#fff8ea);border:1px solid #d7ece7;display:none}.selection-panel.show{display:block}
+.selection-main{display:grid;grid-template-columns:auto 1fr auto;gap:13px;align-items:center}.selection-emoji{width:60px;height:60px;border-radius:18px;display:grid;place-items:center;font-size:34px;background:linear-gradient(145deg,var(--orange-soft),var(--teal-soft));border:1px solid var(--border)}
+.selection-panel h3{margin:0 0 4px}.selection-panel p{margin:0;color:var(--muted);font-size:12px}.compat-pill{min-width:82px;text-align:center;border-radius:14px;padding:9px 8px;background:#fff;border:1px solid var(--border)}.compat-pill b{display:block;font-size:21px;color:var(--teal-dark)}.compat-pill span{font-size:10px;color:var(--muted)}.selection-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.decision-section{margin-top:18px}.decision-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.final-card{background:linear-gradient(145deg,#0d5f59,#123a35);border-radius:24px;color:white;padding:20px;position:relative;overflow:hidden;min-height:260px}.final-label{font-size:11px;letter-spacing:.12em;font-weight:900;color:#bdece6}.final-restaurant{font-size:30px;font-weight:950;margin:10px 0 5px}.final-dish{color:#e6f6f4;font-size:14px}.final-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}.final-kpi{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:10px}.final-kpi span{display:block;color:#bfe4df;font-size:10px}.final-kpi b{display:block;font-size:17px;margin-top:3px}
+.match-ring-wrap{display:flex;align-items:center;gap:18px;margin-top:17px}.match-ring{--pct:0;width:100px;height:100px;border-radius:50%;background:conic-gradient(var(--orange) calc(var(--pct)*1%),rgba(255,255,255,.15) 0);display:grid;place-items:center;position:relative}.match-ring:before{content:"";position:absolute;width:72px;height:72px;border-radius:50%;background:#12443e}.match-ring strong{position:relative;font-size:22px}.reason-list{display:grid;gap:6px;font-size:12px;color:#e5f5f2}
+.visual-report{background:white;border:1px solid var(--border);border-radius:24px;padding:18px}.visual-report h3{margin:0 0 5px}.report-sub{font-size:12px;color:var(--muted);margin-bottom:15px}.metric-row{display:grid;grid-template-columns:92px 1fr 48px;gap:9px;align-items:center;margin:11px 0;font-size:12px}.metric-track{height:10px;border-radius:999px;background:#edf3f1;overflow:hidden}.metric-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--teal),#48cfc0);width:0;transition:.35s}.metric-row:nth-child(3) .metric-fill{background:linear-gradient(90deg,var(--orange),#ffd166)}.metric-row:nth-child(4) .metric-fill{background:linear-gradient(90deg,#2d7ff9,#78aafc)}.metric-row b{text-align:right}
+.reservation-status{margin-top:14px;padding:13px;border-radius:15px;border:1px dashed #b9d9d3;background:#f7fcfb;display:flex;gap:10px;align-items:center}.reservation-status .big-icon{font-size:30px}.reservation-status strong{display:block}.reservation-status span{font-size:11px;color:var(--muted)}
+.reserve-modal-card{width:min(880px,100%);max-height:92vh;overflow:auto;background:white;border-radius:26px;box-shadow:0 30px 80px rgba(0,0,0,.28)}.reserve-head{padding:20px 22px;background:linear-gradient(135deg,#0e766f,#11998e);color:white;display:flex;justify-content:space-between;gap:12px}.reserve-head h2{margin:0;font-size:25px}.reserve-head p{margin:5px 0 0;color:#d9f4f0;font-size:12px}.reserve-close{border:0;background:rgba(255,255,255,.14);color:white;width:38px;height:38px;border-radius:50%;font-size:18px}.reserve-body{padding:20px}.reserve-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}.reserve-step{padding:10px;border-radius:12px;background:#f3f7f6;color:var(--muted);font-size:11px;font-weight:900;text-align:center}.reserve-step.active{background:var(--teal-soft);color:var(--teal-dark)}.reserve-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.reserve-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.reserve-fields label{font-size:12px;font-weight:900;color:#3b5953}.reserve-fields input,.reserve-fields select{width:100%;margin-top:6px;padding:11px;border:1px solid var(--border);border-radius:11px;background:white}
+.table-zone{border:1px solid var(--border);border-radius:18px;padding:14px;background:#f8fbfa;min-height:310px}.table-legend{display:flex;gap:10px;flex-wrap:wrap;font-size:10px;color:var(--muted);margin:10px 0}.legend-dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:4px}.tables-map{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;padding:8px}.table-seat{min-height:74px;border:2px solid #cfe0dc;border-radius:50%;background:white;display:grid;place-items:center;text-align:center;font-size:11px;font-weight:900;position:relative;cursor:pointer}.table-seat:hover{transform:scale(1.04);border-color:var(--teal)}.table-seat.selected{border-color:var(--teal);background:var(--teal-soft);box-shadow:0 0 0 4px rgba(17,153,142,.10)}.table-seat.busy{background:#eee;color:#aaa;border-color:#ddd;cursor:not-allowed;text-decoration:line-through}.table-seat small{display:block;font-size:9px;color:var(--muted);font-weight:700}.reserve-summary{margin-top:14px;background:#fff8e9;border:1px solid #ffe0ad;border-radius:14px;padding:12px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.reserve-summary span{display:block;font-size:9px;color:#8a7045}.reserve-summary b{font-size:12px}
+.confirm-modal-card{width:min(650px,100%);background:white;border-radius:28px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.30)}.confirm-hero{padding:26px;text-align:center;background:linear-gradient(145deg,#0c625a,#11998e);color:white}.success-check{width:76px;height:76px;border-radius:50%;background:white;color:var(--teal);display:grid;place-items:center;font-size:42px;font-weight:900;margin:0 auto 12px}.confirm-hero h2{margin:0}.confirm-hero p{margin:6px 0 0;color:#d9f5f1}.ticket{margin:18px;border:1px dashed #b9d9d3;border-radius:18px;padding:18px;background:#fbfefd}.ticket-code{font-family:Consolas,monospace;font-size:19px;font-weight:900;color:var(--teal-dark);letter-spacing:.08em}.ticket-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:15px}.ticket-grid span{font-size:9px;color:var(--muted);display:block;text-transform:uppercase}.ticket-grid b{font-size:13px}.qr-demo{width:88px;height:88px;display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:6px;background:white;border:1px solid var(--border);border-radius:10px}.qr-demo i{background:#153b36}.qr-demo i.blank{background:white}.confirm-bottom{padding:0 18px 18px;display:flex;gap:8px;flex-wrap:wrap}.confirm-bottom button{flex:1;min-width:150px}
+.report-modal-card{width:min(900px,100%);max-height:92vh;overflow:auto;background:#f7faf9;border-radius:24px}.report-paper{margin:18px;background:white;border-radius:18px;padding:25px;border:1px solid var(--border)}.report-header{display:flex;justify-content:space-between;gap:14px;align-items:center;border-bottom:2px solid #e5efec;padding-bottom:15px}.report-brand{display:flex;gap:12px;align-items:center}.report-brand img{width:70px;height:70px;object-fit:contain}.report-header h2{margin:0}.report-header p{margin:4px 0 0;color:var(--muted);font-size:11px}.report-code{text-align:right}.report-code b{font-family:Consolas,monospace;color:var(--teal-dark)}.report-columns{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.report-box{border:1px solid var(--border);border-radius:14px;padding:14px}.report-box h4{margin:0 0 10px}.report-data{display:grid;grid-template-columns:1fr 1fr;gap:9px;font-size:12px}.report-data span{color:var(--muted);display:block;font-size:9px}.report-chart{display:grid;gap:10px}.report-chart-row{display:grid;grid-template-columns:95px 1fr 40px;gap:8px;align-items:center;font-size:11px}.report-chart-track{height:10px;border-radius:99px;background:#edf3f1;overflow:hidden}.report-chart-fill{height:100%;background:linear-gradient(90deg,var(--teal),#5ed2c6)}.report-sign{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:35px;text-align:center;font-size:10px;color:var(--muted)}.report-sign div{border-top:1px solid #9eb4af;padding-top:6px}
+@media print{body *{visibility:hidden!important}#reportModal,#reportModal *{visibility:visible!important}#reportModal{position:absolute!important;inset:0!important;background:white!important;display:block!important}.report-modal-card{box-shadow:none!important;max-height:none!important;width:100%!important}.report-paper{margin:0!important;border:0!important}.no-print{display:none!important}}
+@media(max-width:800px){.decision-grid,.reserve-grid,.report-columns{grid-template-columns:1fr}.reserve-fields{grid-template-columns:1fr}.reserve-summary{grid-template-columns:1fr 1fr}.tables-map{grid-template-columns:repeat(2,1fr)}.selection-main{grid-template-columns:auto 1fr}.compat-pill{grid-column:1/-1}}
+
 </style>
 </head>
 <body>
@@ -513,6 +531,17 @@ a{color:inherit;text-decoration:none}
         <span id="resultCount" class="badge">0 opciones</span>
       </div>
       <div id="restaurantGrid" class="restaurant-grid"></div>
+      <div id="selectionPanel" class="selection-panel">
+        <div class="selection-main">
+          <div class="selection-emoji" id="selectionEmoji">🍽️</div>
+          <div><h3 id="selectionName">Restaurante seleccionado</h3><p id="selectionInfo">Selecciona una opción para ver el resumen.</p></div>
+          <div class="compat-pill"><b id="selectionMatch">--%</b><span>compatibilidad</span></div>
+        </div>
+        <div class="selection-actions">
+          <button class="btn btn-primary" id="selectionRouteBtn" type="button">📍 Ver ruta GPS</button>
+          <button class="btn btn-orange" id="selectionReserveBtn" type="button">🍽 Reservar mesa</button>
+        </div>
+      </div>
     </div>
 
     <div class="panel map-panel">
@@ -590,6 +619,37 @@ a{color:inherit;text-decoration:none}
     </aside>
   </section>
 
+
+  <section class="decision-section" id="decisionSection">
+    <div class="panel-head" style="padding-left:0;padding-right:0">
+      <div><h2>📊 Resultado final de tu elección</h2><p>Resumen gráfico de la recomendación y de la reserva realizada.</p></div>
+      <button class="btn btn-light" id="openReportBtn" type="button" disabled>📄 Ver reporte completo</button>
+    </div>
+    <div class="decision-grid">
+      <div class="final-card">
+        <div class="final-label">MEJOR OPCIÓN SELECCIONADA</div>
+        <div class="final-restaurant" id="finalRestaurant">Aún no has elegido restaurante</div>
+        <div class="final-dish" id="finalDish">Usa los resultados para seleccionar tu opción ideal.</div>
+        <div class="final-kpis">
+          <div class="final-kpi"><span>CALIFICACIÓN</span><b id="finalRating">--</b></div>
+          <div class="final-kpi"><span>PRECIO PROMEDIO</span><b id="finalPrice">--</b></div>
+          <div class="final-kpi"><span>DISTANCIA</span><b id="finalDistance">--</b></div>
+        </div>
+        <div class="match-ring-wrap">
+          <div class="match-ring" id="matchRing"><strong id="matchRingText">0%</strong></div>
+          <div class="reason-list" id="reasonList"><div>○ Tipo de comida pendiente</div><div>○ Presupuesto pendiente</div><div>○ Distancia pendiente</div></div>
+        </div>
+      </div>
+      <div class="visual-report">
+        <h3>¿Por qué RECOMENTA lo eligió?</h3><div class="report-sub">Comparación visual con tus preferencias actuales.</div>
+        <div class="metric-row"><span>Calificación</span><div class="metric-track"><div id="metricRating" class="metric-fill"></div></div><b id="metricRatingText">0%</b></div>
+        <div class="metric-row"><span>Presupuesto</span><div class="metric-track"><div id="metricBudget" class="metric-fill"></div></div><b id="metricBudgetText">0%</b></div>
+        <div class="metric-row"><span>Cercanía</span><div class="metric-track"><div id="metricDistance" class="metric-fill"></div></div><b id="metricDistanceText">0%</b></div>
+        <div id="reservationStatus" class="reservation-status"><div class="big-icon">🪑</div><div><strong>Sin reserva todavía</strong><span>Cuando confirmes una mesa aparecerá aquí el resultado.</span></div></div>
+      </div>
+    </div>
+  </section>
+
   <section class="stats">
     <div class="stat"><div class="icon">🍴</div><div><b>+500</b><span>Restaurantes</span></div></div>
     <div class="stat"><div class="icon">💬</div><div><b>+10.000</b><span>Reseñas reales</span></div></div>
@@ -624,525 +684,139 @@ a{color:inherit;text-decoration:none}
   </div>
 </div>
 
+
+<div class="modal" id="reserveModal">
+  <div class="reserve-modal-card">
+    <div class="reserve-head"><div><h2>🍽 Reserva tu mesa</h2><p id="reserveRestaurantTitle">Selecciona los datos y una mesa disponible.</p></div><button class="reserve-close" id="closeReserve" type="button">×</button></div>
+    <div class="reserve-body">
+      <div class="reserve-steps"><div class="reserve-step active">1 · Datos</div><div class="reserve-step active">2 · Escoge tu mesa</div><div class="reserve-step">3 · Confirmación</div></div>
+      <div class="reserve-grid">
+        <div>
+          <div class="reserve-fields">
+            <label>Fecha<input type="date" id="reserveDate"></label>
+            <label>Hora<select id="reserveTime"><option>12:00</option><option>13:00</option><option>14:00</option><option>18:30</option><option selected>19:30</option><option>20:30</option><option>21:30</option></select></label>
+            <label>Personas<select id="reservePeople"><option>2</option><option selected>4</option><option>6</option><option>8</option></select></label>
+            <label>Zona<select id="reserveZone"><option>Salón principal</option><option>Terraza</option><option>Zona familiar</option><option>Ventanal</option></select></label>
+            <label style="grid-column:1/-1">Ocasión<select id="reserveOccasion"><option>Comida casual</option><option>Cumpleaños</option><option>Reunión de amigos</option><option>Cena especial</option></select></label>
+          </div>
+          <div class="reserve-summary">
+            <div><span>RESTAURANTE</span><b id="reserveSumRest">--</b></div><div><span>MESA</span><b id="reserveSumTable">Sin elegir</b></div><div><span>PERSONAS</span><b id="reserveSumPeople">4</b></div><div><span>ESTADO</span><b style="color:var(--green)">Disponible</b></div>
+          </div>
+        </div>
+        <div class="table-zone">
+          <div style="display:flex;justify-content:space-between;gap:10px"><b>Plano del restaurante</b><span class="badge">🪟 Ventanal</span></div>
+          <div class="table-legend"><span><i class="legend-dot" style="background:white;border:1px solid #9bb2ad"></i>Disponible</span><span><i class="legend-dot" style="background:var(--teal-soft)"></i>Seleccionada</span><span><i class="legend-dot" style="background:#e7e7e7"></i>Ocupada</span></div>
+          <div class="tables-map" id="tablesMap">
+            <button class="table-seat" type="button" data-table="M1">M1<small>2 personas</small></button><button class="table-seat busy" type="button" data-table="M2" disabled>M2<small>Ocupada</small></button><button class="table-seat" type="button" data-table="M3">M3<small>4 personas</small></button><button class="table-seat" type="button" data-table="M4">M4<small>4 personas</small></button>
+            <button class="table-seat busy" type="button" data-table="M5" disabled>M5<small>Ocupada</small></button><button class="table-seat" type="button" data-table="M6">M6<small>6 personas</small></button><button class="table-seat" type="button" data-table="M7">M7<small>4 personas</small></button><button class="table-seat" type="button" data-table="M8">M8<small>8 personas</small></button>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px"><button class="btn btn-light" id="cancelReserve" type="button">Cancelar</button><button class="btn btn-primary" id="confirmReserve" type="button">✅ Confirmar reserva</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="confirmModal">
+  <div class="confirm-modal-card">
+    <div class="confirm-hero"><div class="success-check">✓</div><h2>¡Mesa reservada con éxito!</h2><p>Tu reserva quedó confirmada dentro de la simulación RECOMENTA.</p></div>
+    <div class="ticket">
+      <div style="display:flex;justify-content:space-between;gap:15px"><div><div style="font-size:10px;color:var(--muted)">CÓDIGO DE RESERVA</div><div id="ticketCode" class="ticket-code">REC-000000</div><h3 id="ticketRestaurant" style="margin:13px 0 4px">Restaurante</h3><div id="ticketDish" style="font-size:12px;color:var(--muted)">Plato recomendado</div></div><div class="qr-demo" id="qrDemo"></div></div>
+      <div class="ticket-grid"><div><span>USUARIO</span><b id="ticketUser">Invitado</b></div><div><span>MESA</span><b id="ticketTable">M3</b></div><div><span>FECHA Y HORA</span><b id="ticketDateTime">--</b></div><div><span>PERSONAS</span><b id="ticketPeople">--</b></div><div><span>ZONA</span><b id="ticketZone">--</b></div><div><span>ESTADO</span><b style="color:var(--green)">CONFIRMADA ✓</b></div></div>
+    </div>
+    <div class="confirm-bottom"><button class="btn btn-light" id="closeConfirm" type="button">Cerrar</button><button class="btn btn-orange" id="downloadReportBtn" type="button">⬇ Descargar reporte</button><button class="btn btn-primary" id="openReportFromConfirm" type="button">📊 Ver resultado gráfico</button></div>
+  </div>
+</div>
+
+<div class="modal" id="reportModal">
+  <div class="report-modal-card">
+    <div class="no-print" style="padding:14px 18px 0;display:flex;justify-content:flex-end;gap:8px"><button class="btn btn-light" id="closeReport" type="button">Cerrar</button><button class="btn btn-primary" id="printReport" type="button">🖨 Imprimir / Guardar PDF</button></div>
+    <div class="report-paper" id="reportPaper">
+      <div class="report-header"><div class="report-brand"><img id="reportLogo" alt="RECOMENTA"><div><h2>RECOMENTA · Reporte de decisión y reserva</h2><p>Demo académico · Jaider Terán & William Rueda · Colegio Militar General Santander</p></div></div><div class="report-code"><span style="font-size:9px;color:var(--muted)">RESERVA</span><br><b id="reportReservationCode">SIN RESERVA</b></div></div>
+      <div class="report-columns">
+        <div class="report-box"><h4>🍽 Restaurante seleccionado</h4><div class="report-data"><div><span>RESTAURANTE</span><b id="reportRestaurant">--</b></div><div><span>CALIFICACIÓN</span><b id="reportRating">--</b></div><div><span>PRECIO PROMEDIO</span><b id="reportPrice">--</b></div><div><span>DISTANCIA</span><b id="reportDistance">--</b></div><div><span>PLATO DESTACADO</span><b id="reportDish">--</b></div><div><span>COMPATIBILIDAD</span><b id="reportMatch">--</b></div></div></div>
+        <div class="report-box"><h4>🪑 Datos de la reserva</h4><div class="report-data"><div><span>USUARIO</span><b id="reportUser">--</b></div><div><span>MESA</span><b id="reportTable">--</b></div><div><span>FECHA</span><b id="reportDate">--</b></div><div><span>HORA</span><b id="reportTime">--</b></div><div><span>PERSONAS</span><b id="reportPeople">--</b></div><div><span>ZONA</span><b id="reportZone">--</b></div></div></div>
+      </div>
+      <div class="report-box" style="margin-top:16px"><h4>📊 Evaluación gráfica</h4><div class="report-chart"><div class="report-chart-row"><span>Calificación</span><div class="report-chart-track"><div class="report-chart-fill" id="reportBarRating"></div></div><b id="reportBarRatingText">0%</b></div><div class="report-chart-row"><span>Presupuesto</span><div class="report-chart-track"><div class="report-chart-fill" id="reportBarBudget"></div></div><b id="reportBarBudgetText">0%</b></div><div class="report-chart-row"><span>Cercanía</span><div class="report-chart-track"><div class="report-chart-fill" id="reportBarDistance"></div></div><b id="reportBarDistanceText">0%</b></div></div></div>
+      <div class="report-box" style="margin-top:16px"><h4>✅ Resultado final</h4><p id="reportConclusion" style="font-size:12px;line-height:1.6;margin:0">Selecciona un restaurante para generar el resultado.</p></div>
+      <div class="report-sign"><div>Jaider Terán<br>Estudiante</div><div>William Rueda<br>Estudiante</div></div>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
 
 (() => {
-  "use strict";
-
-  // -----------------------------
-  // ESTADO GENERAL
-  // -----------------------------
-  const restaurants = [
-    {name:"La Esquina Santandereana",type:"colombiana",price:25000,km:1.2,rating:4.8,reviews:320,diets:["sin-gluten"],dish:"Carne oreada",emoji:"🥘",cover:"c1",x:18,y:28},
-    {name:"Pasta Mia",type:"italiana",price:32000,km:2.4,rating:4.6,reviews:210,diets:["vegetariana"],dish:"Pasta artesanal",emoji:"🍝",cover:"c2",x:22,y:24},
-    {name:"Wok Urbano",type:"asiatica",price:28000,km:3.1,rating:4.7,reviews:180,diets:["vegana","sin-gluten"],dish:"Wok teriyaki",emoji:"🍜",cover:"c3",x:72,y:30},
-    {name:"Taco Punto",type:"mexicana",price:22000,km:4.3,rating:4.5,reviews:160,diets:["vegetariana"],dish:"Tacos mixtos",emoji:"🌮",cover:"c4",x:30,y:76},
-    {name:"Verde Vivo",type:"saludable",price:26000,km:2.8,rating:4.6,reviews:142,diets:["vegana","sin-gluten"],dish:"Bowl mediterráneo",emoji:"🥗",cover:"c5",x:68,y:72},
-    {name:"Casa Burger",type:"hamburguesas",price:29000,km:3.6,rating:4.4,reviews:98,diets:[],dish:"Burger artesanal",emoji:"🍔",cover:"c6",x:80,y:60},
-    {name:"Sazón de Casa",type:"colombiana",price:19000,km:1.8,rating:4.7,reviews:165,diets:["vegetariana"],dish:"Mute santandereano",emoji:"🍲",cover:"c1",x:38,y:20},
-    {name:"Trattoria Bella",type:"italiana",price:42000,km:4.1,rating:4.9,reviews:260,diets:["vegetariana","sin-gluten"],dish:"Lasagna de la casa",emoji:"🍕",cover:"c2",x:78,y:18},
-    {name:"Sushi Go",type:"asiatica",price:35000,km:4.8,rating:4.8,reviews:201,diets:["vegetariana","sin-gluten"],dish:"Roll tempura",emoji:"🍣",cover:"c3",x:84,y:42},
-    {name:"México Lindo",type:"mexicana",price:30000,km:5.2,rating:4.8,reviews:188,diets:["vegetariana","sin-gluten"],dish:"Burrito especial",emoji:"🌯",cover:"c4",x:20,y:58},
-    {name:"Fit Kitchen",type:"saludable",price:29000,km:2.9,rating:4.9,reviews:175,diets:["vegetariana","vegana","sin-gluten"],dish:"Bowl proteico",emoji:"🥙",cover:"c5",x:55,y:18},
-    {name:"Burger Lab",type:"hamburguesas",price:33000,km:5.0,rating:4.7,reviews:150,diets:["sin-gluten"],dish:"Smash burger",emoji:"🍔",cover:"c6",x:14,y:72}
-  ];
-
-  const gpsOrigin = {x:46, y:66};
-  let currentUserName = "Invitado";
-  let filtered = [...restaurants];
-  let votes = {};
-  let selectedPlace = null;
-  let routePoints = [];
-  let animation = null;
-  let tripRunning = false;
-  let tripPaused = false;
-  let pauseStarted = 0;
-  let pauseAccumulated = 0;
-  let tripStartTime = null;
-
-  // -----------------------------
-  // UTILIDADES
-  // -----------------------------
-  const $ = (id) => document.getElementById(id);
-  const money = (n) => "$ " + n.toLocaleString("es-CO");
-
-  function showToast(msg){
-    const t = $("toast");
-    if(!t) return;
-    t.textContent = msg;
-    t.classList.add("show");
-    setTimeout(() => t.classList.remove("show"), 2200);
-  }
-
-  function escapeHtml(text){
-    return String(text).replace(/[&<>"']/g, c => ({
-      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-    }[c]));
-  }
-
-  // -----------------------------
-  // LOGIN / CERRAR SESIÓN
-  // -----------------------------
-  const loginScreen = $("loginScreen");
-  const loginForm = $("loginForm");
-  const loginUser = $("loginUser");
-  const loginPass = $("loginPass");
-  const loginError = $("loginError");
-  const showPassBtn = $("showPassBtn");
-  const logoutBtn = $("logoutBtn");
-
-  const users = {
-    jaider:  {pass:"1234", name:"Jaider Terán"},
-    william: {pass:"1234", name:"William Rueda"},
-    demo:    {pass:"demo", name:"Invitado"}
-  };
-
-  showPassBtn.addEventListener("click", () => {
-    const visible = loginPass.type === "text";
-    loginPass.type = visible ? "password" : "text";
-    showPassBtn.textContent = visible ? "Ver contraseña" : "Ocultar contraseña";
-  });
-
-  loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const user = loginUser.value.trim().toLowerCase();
-    const pass = loginPass.value.trim();
-    const account = users[user];
-
-    if(!account || account.pass !== pass){
-      loginError.textContent = "Usuario o contraseña incorrectos.";
-      loginPass.focus();
-      return;
-    }
-
-    const submitBtn = loginForm.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    submitBtn.textContent = "✓ Acceso autorizado...";
-
-    currentUserName = account.name;
-    $("profileName").textContent = currentUserName;
-    $("profileAvatar").textContent = currentUserName.charAt(0).toUpperCase();
-    loginError.textContent = "";
-
-    setTimeout(() => {
-      loginScreen.classList.add("hidden");
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Ingresar a RECOMENTA →";
-      showToast("👋 Bienvenido a RECOMENTA, " + currentUserName);
-    }, 450);
-  });
-
-  logoutBtn.addEventListener("click", () => {
-    currentUserName = "Invitado";
-    $("profileName").textContent = "Usuario";
-    $("profileAvatar").textContent = "U";
-    loginUser.value = "";
-    loginPass.value = "";
-    loginPass.type = "password";
-    showPassBtn.textContent = "Ver contraseña";
-    loginError.textContent = "";
-    resetTrip();
-    loginScreen.classList.remove("hidden");
-    loginUser.focus();
-  });
-
-  // -----------------------------
-  // RESTAURANTES / FILTROS
-  // -----------------------------
-  function renderRestaurants(list){
-    filtered = list;
-    const grid = $("restaurantGrid");
-    grid.innerHTML = "";
-    $("resultCount").textContent = list.length + (list.length === 1 ? " opción" : " opciones");
-
-    list.forEach(r => {
-      const el = document.createElement("article");
-      el.className = "restaurant-card";
-      el.innerHTML = `
-        <div class="cover ${r.cover}">
-          <button class="fav" type="button" aria-label="Favorito">♡</button>
-          <span>${r.emoji}</span>
-        </div>
-        <div class="card-body">
-          <h3>${escapeHtml(r.name)}</h3>
-          <div class="rating-row">⭐ <b>${r.rating}</b>
-            <span style="color:var(--muted)">(${r.reviews})</span>
-          </div>
-          <div class="meta">
-            <span>📍 ${r.km} km</span>
-            <span>💲 ${money(r.price)}</span>
-          </div>
-          <div class="meta">
-            ${r.diets.length ? r.diets.map(d => `<span class="badge">${escapeHtml(d)}</span>`).join("") : '<span class="badge">Sin restricción</span>'}
-          </div>
-          <div class="card-actions">
-            <button class="menu" type="button">Ver menú</button>
-            <button class="routebtn" type="button">Cómo llegar</button>
-          </div>
-        </div>`;
-
-      el.querySelector(".fav").addEventListener("click", (ev) => {
-        ev.currentTarget.textContent = ev.currentTarget.textContent === "♡" ? "♥" : "♡";
-        showToast("❤️ Favorito actualizado");
-      });
-
-      el.querySelector(".menu").addEventListener("click", () => {
-        showToast(`📋 ${r.name} · Plato estrella: ${r.dish}`);
-      });
-
-      el.querySelector(".routebtn").addEventListener("click", () => {
-        chooseDestination(r);
-        $("map").scrollIntoView({behavior:"smooth", block:"center"});
-      });
-
-      grid.appendChild(el);
-    });
-
-    renderVotes(list.slice(0,3));
-  }
-
-  function applyFilters(){
-    const type = $("tipo").value;
-    const budget = Number($("presupuesto").value);
-    const diet = $("dieta").value;
-    const distance = Number($("distancia").value);
-
-    let list = restaurants.filter(r =>
-      (type === "cualquiera" || r.type === type) &&
-      r.price <= budget &&
-      r.km <= distance &&
-      (diet === "ninguna" || r.diets.includes(diet))
-    ).sort((a,b) => b.rating - a.rating);
-
-    if(!list.length){
-      list = restaurants.map(r => {
-        let score = 0;
-        if(type === "cualquiera" || r.type === type) score += 4;
-        if(r.price <= budget) score += 3;
-        if(r.km <= distance) score += 2;
-        if(diet === "ninguna" || r.diets.includes(diet)) score += 4;
-        return {...r, score};
-      }).sort((a,b) => b.score - a.score || b.rating - a.rating).slice(0,6);
-
-      $("resultText").textContent = "No hubo coincidencia exacta; te mostramos las mejores alternativas.";
-    } else {
-      $("resultText").textContent = "Encontramos opciones que se ajustan a tus preferencias.";
-    }
-
-    renderRestaurants(list);
-  }
-
-  $("buscarBtn").addEventListener("click", applyFilters);
-  $("locationBtn").addEventListener("click", () => {
-    showToast("🎯 Ubicación simulada detectada en Bucaramanga");
-    $("map").scrollIntoView({behavior:"smooth", block:"center"});
-  });
-
-  document.querySelectorAll(".chip").forEach(chip => {
-    chip.addEventListener("click", () => {
-      document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-      chip.classList.add("active");
-      $("tipo").value = chip.dataset.type;
-      applyFilters();
-    });
-  });
-
-  // -----------------------------
-  // VOTACIÓN
-  // -----------------------------
-  function renderVotes(list){
-    const box = $("voteList");
-    box.innerHTML = "";
-
-    list.forEach(r => {
-      votes[r.name] ??= 0;
-      const total = Math.max(1, list.reduce((s,x) => s + (votes[x.name] || 0), 0));
-      const pct = Math.round((votes[r.name] / total) * 100);
-
-      const item = document.createElement("div");
-      item.className = "vote-item";
-      item.innerHTML = `
-        <div class="vote-row">
-          <span>${r.emoji} ${escapeHtml(r.name)}</span>
-          <button class="btn btn-light" type="button" style="padding:6px 9px">+1</button>
-        </div>
-        <div class="vote-bar"><div class="vote-fill" style="width:${pct}%"></div></div>
-        <div style="font-size:11px;color:var(--muted);margin-top:5px">${votes[r.name]} votos</div>`;
-
-      item.querySelector("button").addEventListener("click", () => {
-        votes[r.name]++;
-        renderVotes(list);
-      });
-
-      box.appendChild(item);
-    });
-  }
-
-  // -----------------------------
-  // GPS SIMULADO MEJORADO
-  // -----------------------------
-  function buildRoute(dest){
-    const sx = gpsOrigin.x, sy = gpsOrigin.y, ex = dest.x, ey = dest.y;
-    const dir = ex >= sx ? 1 : -1;
-
-    return [
-      {x:sx, y:sy},
-      {x:sx + 8*dir, y:sy - 1},
-      {x:sx + 8*dir, y:sy - 12},
-      {x:sx + (ex-sx)*0.58, y:sy - 12},
-      {x:sx + (ex-sx)*0.58, y:ey + (sy-ey)*0.20},
-      {x:ex, y:ey}
-    ];
-  }
-
-  function routeDistance(points){
-    let d = 0;
-    for(let i=1; i<points.length; i++){
-      d += Math.hypot(points[i].x-points[i-1].x, points[i].y-points[i-1].y);
-    }
-    return Math.max(0.8, d / 10.5);
-  }
-
-  function chooseDestination(place){
-    selectedPlace = {
-      name: place.name,
-      x: Number(place.x),
-      y: Number(place.y)
-    };
-
-    routePoints = buildRoute(selectedPlace);
-    const pointsText = routePoints.map(p => `${p.x},${p.y}`).join(" ");
-
-    $("routePath").setAttribute("points", pointsText);
-    $("routeShadow").setAttribute("points", pointsText);
-
-    const km = routeDistance(routePoints);
-    const mins = Math.max(4, Math.ceil(km * 3.1));
-
-    $("tripTitle").textContent = selectedPlace.name;
-    $("tripInfo").textContent = "Ruta GPS simulada calculada desde tu ubicación.";
-    $("distanceLeft").textContent = km.toFixed(1) + " km";
-    $("etaLeft").textContent = mins + " min";
-    $("turnInstruction").textContent = "Dirígete a la vía principal";
-    $("tripState").textContent = "Ruta lista";
-    $("tripProgress").style.width = "0%";
-    $("speedValue").textContent = "0";
-    $("vehicle").style.display = "none";
-    $("startTrip").disabled = false;
-    $("pauseTrip").disabled = true;
-    $("reserveBtn").disabled = false;
-    $("startTrip").textContent = "▶ Iniciar ruta";
-  }
-
-  document.querySelectorAll(".map-pin").forEach(pin => {
-    pin.querySelector("button").addEventListener("click", () => {
-      chooseDestination({
-        name: pin.dataset.name,
-        x: Number(pin.dataset.x),
-        y: Number(pin.dataset.y)
-      });
-    });
-  });
-
-  function pointOnPolyline(points, t){
-    const lengths = [];
-    let total = 0;
-
-    for(let i=1; i<points.length; i++){
-      const len = Math.hypot(points[i].x-points[i-1].x, points[i].y-points[i-1].y);
-      lengths.push(len);
-      total += len;
-    }
-
-    let target = t * total;
-
-    for(let i=0; i<lengths.length; i++){
-      if(target <= lengths[i]){
-        const a = points[i], b = points[i+1];
-        const u = lengths[i] === 0 ? 0 : target / lengths[i];
-        return {
-          x: a.x + (b.x-a.x)*u,
-          y: a.y + (b.y-a.y)*u,
-          segment: i
-        };
-      }
-      target -= lengths[i];
-    }
-
-    return {...points[points.length-1], segment:points.length-2};
-  }
-
-  function instructionFor(segment){
-    const instructions = [
-      "Sigue derecho",
-      "Gira a la izquierda",
-      "Continúa por la vía principal",
-      "Gira a la derecha",
-      "Tu destino está más adelante"
-    ];
-    return instructions[Math.min(segment, instructions.length-1)];
-  }
-
-  $("startTrip").addEventListener("click", () => {
-    if(!selectedPlace || !routePoints.length) return;
-    if(animation) cancelAnimationFrame(animation);
-
-    tripRunning = true;
-    tripPaused = false;
-    tripStartTime = null;
-    pauseStarted = 0;
-    pauseAccumulated = 0;
-
-    const totalKm = routeDistance(routePoints);
-    const duration = 8000;
-    const v = $("vehicle");
-    v.style.display = "grid";
-
-    $("pauseTrip").disabled = false;
-    $("pauseTrip").textContent = "⏸ Pausar";
-    $("tripState").textContent = "En ruta";
-    $("startTrip").textContent = "↻ Reiniciar ruta";
-
-    function step(ts){
-      if(!tripRunning) return;
-
-      if(tripPaused){
-        animation = requestAnimationFrame(step);
-        return;
-      }
-
-      if(!tripStartTime) tripStartTime = ts;
-      const elapsed = ts - tripStartTime - pauseAccumulated;
-      const t = Math.min(1, elapsed / duration);
-      const pos = pointOnPolyline(routePoints, t);
-
-      const mapRect = $("map").getBoundingClientRect();
-      v.style.left = (mapRect.width * (pos.x/100) - 20) + "px";
-      v.style.top  = (mapRect.height * (pos.y/100) - 20) + "px";
-
-      $("tripProgress").style.width = Math.round(t*100) + "%";
-
-      const remainingKm = Math.max(0, totalKm * (1-t));
-      const remainingMin = Math.max(0, Math.ceil((1-t) * Math.max(4,totalKm*3.1)));
-
-      $("distanceLeft").textContent = remainingKm.toFixed(1) + " km";
-      $("etaLeft").textContent = remainingMin + " min";
-      $("turnInstruction").textContent = instructionFor(pos.segment);
-
-      const speed = t >= 1 ? 0 : Math.max(18, Math.round(34 + 11*Math.sin(t*10)));
-      $("speedValue").textContent = speed;
-
-      if(t < 1){
-        animation = requestAnimationFrame(step);
-      } else {
-        tripRunning = false;
-        $("pauseTrip").disabled = true;
-        $("tripState").textContent = "Llegaste";
-        $("turnInstruction").textContent = "Has llegado a tu destino";
-        $("distanceLeft").textContent = "0.0 km";
-        $("etaLeft").textContent = "0 min";
-        $("speedValue").textContent = "0";
-        showToast("🏁 Has llegado a " + selectedPlace.name + " 😋");
-      }
-    }
-
-    animation = requestAnimationFrame(step);
-  });
-
-  $("pauseTrip").addEventListener("click", () => {
-    if(!tripRunning) return;
-
-    tripPaused = !tripPaused;
-
-    if(tripPaused){
-      pauseStarted = performance.now();
-      $("pauseTrip").textContent = "▶ Continuar";
-      $("tripState").textContent = "Pausada";
-      $("speedValue").textContent = "0";
-    } else {
-      pauseAccumulated += performance.now() - pauseStarted;
-      $("pauseTrip").textContent = "⏸ Pausar";
-      $("tripState").textContent = "En ruta";
-    }
-  });
-
-  $("reserveBtn").addEventListener("click", () => {
-    if(selectedPlace){
-      showToast("🗓 Reserva simulada confirmada en " + selectedPlace.name);
-    }
-  });
-
-  function resetTrip(){
-    if(animation) cancelAnimationFrame(animation);
-    animation = null;
-    tripRunning = false;
-    tripPaused = false;
-    selectedPlace = null;
-    routePoints = [];
-
-    $("routePath").setAttribute("points","");
-    $("routeShadow").setAttribute("points","");
-    $("vehicle").style.display = "none";
-    $("tripProgress").style.width = "0%";
-    $("speedValue").textContent = "0";
-    $("tripTitle").textContent = "Selecciona un restaurante";
-    $("tripInfo").textContent = "Elige un marcador para simular la ruta.";
-    $("tripState").textContent = "Sin ruta";
-    $("distanceLeft").textContent = "-- km";
-    $("etaLeft").textContent = "-- min";
-    $("turnInstruction").textContent = "Esperando destino";
-    $("startTrip").disabled = true;
-    $("pauseTrip").disabled = true;
-    $("reserveBtn").disabled = true;
-    $("startTrip").textContent = "▶ Iniciar ruta";
-  }
-
-  // -----------------------------
-  // RESEÑAS
-  // -----------------------------
-  const modal = $("reviewModal");
-  $("reviewBtn").addEventListener("click", () => modal.classList.add("show"));
-  $("closeReview").addEventListener("click", () => modal.classList.remove("show"));
-
-  const reviewSelect = $("reviewRestaurant");
-  restaurants.forEach(r => {
-    const option = document.createElement("option");
-    option.value = r.name;
-    option.textContent = r.name;
-    reviewSelect.appendChild(option);
-  });
-
-  $("saveReview").addEventListener("click", () => {
-    const text = $("reviewText").value.trim();
-
-    if(!text){
-      showToast("✍️ Escribe un comentario");
-      return;
-    }
-
-    const rest = $("reviewRestaurant").value;
-    const stars = $("reviewStars").value;
-    const div = document.createElement("div");
-    div.className = "review";
-    div.innerHTML = `<strong>${escapeHtml(currentUserName)} · ${escapeHtml(stars)}</strong>${escapeHtml(text)} · <b>${escapeHtml(rest)}</b>`;
-
-    $("reviews").prepend(div);
-    $("reviewText").value = "";
-    modal.classList.remove("show");
-    showToast("✅ Reseña publicada en la demo");
-  });
-
-  // -----------------------------
-  // INICIALIZACIÓN
-  // -----------------------------
-  renderRestaurants(restaurants.slice(0,6));
-  resetTrip();
-
-  // El login siempre inicia visible al abrir o recargar el HTML.
-  loginScreen.classList.remove("hidden");
+"use strict";
+const restaurants=[
+{name:"La Esquina Santandereana",type:"colombiana",price:25000,km:1.2,rating:4.8,reviews:320,diets:["sin-gluten"],dish:"Carne oreada",emoji:"🥘",cover:"c1",x:18,y:28},
+{name:"Pasta Mia",type:"italiana",price:32000,km:2.4,rating:4.6,reviews:210,diets:["vegetariana"],dish:"Pasta artesanal",emoji:"🍝",cover:"c2",x:22,y:24},
+{name:"Wok Urbano",type:"asiatica",price:28000,km:3.1,rating:4.7,reviews:180,diets:["vegana","sin-gluten"],dish:"Wok teriyaki",emoji:"🍜",cover:"c3",x:72,y:30},
+{name:"Taco Punto",type:"mexicana",price:22000,km:4.3,rating:4.5,reviews:160,diets:["vegetariana"],dish:"Tacos mixtos",emoji:"🌮",cover:"c4",x:30,y:76},
+{name:"Verde Vivo",type:"saludable",price:26000,km:2.8,rating:4.6,reviews:142,diets:["vegana","sin-gluten"],dish:"Bowl mediterráneo",emoji:"🥗",cover:"c5",x:68,y:72},
+{name:"Casa Burger",type:"hamburguesas",price:29000,km:3.6,rating:4.4,reviews:98,diets:[],dish:"Burger artesanal",emoji:"🍔",cover:"c6",x:80,y:60},
+{name:"Sazón de Casa",type:"colombiana",price:19000,km:1.8,rating:4.7,reviews:165,diets:["vegetariana"],dish:"Mute santandereano",emoji:"🍲",cover:"c1",x:38,y:20},
+{name:"Trattoria Bella",type:"italiana",price:42000,km:4.1,rating:4.9,reviews:260,diets:["vegetariana","sin-gluten"],dish:"Lasagna de la casa",emoji:"🍕",cover:"c2",x:78,y:18},
+{name:"Sushi Go",type:"asiatica",price:35000,km:4.8,rating:4.8,reviews:201,diets:["vegetariana","sin-gluten"],dish:"Roll tempura",emoji:"🍣",cover:"c3",x:84,y:42},
+{name:"México Lindo",type:"mexicana",price:30000,km:5.2,rating:4.8,reviews:188,diets:["vegetariana","sin-gluten"],dish:"Burrito especial",emoji:"🌯",cover:"c4",x:20,y:58},
+{name:"Fit Kitchen",type:"saludable",price:29000,km:2.9,rating:4.9,reviews:175,diets:["vegetariana","vegana","sin-gluten"],dish:"Bowl proteico",emoji:"🥙",cover:"c5",x:55,y:18},
+{name:"Burger Lab",type:"hamburguesas",price:33000,km:5.0,rating:4.7,reviews:150,diets:["sin-gluten"],dish:"Smash burger",emoji:"🍔",cover:"c6",x:14,y:72}
+];
+const $=id=>document.getElementById(id),money=n=>"$ "+Number(n).toLocaleString("es-CO"),gpsOrigin={x:46,y:66};
+let currentUserName="Invitado",filtered=[...restaurants],votes={},chosenRestaurant=null,selectedPlace=null,routePoints=[],animation=null,tripRunning=false,tripPaused=false,tripStartTime=null,pauseStarted=0,pauseAccumulated=0,chosenTable="",lastReservation=null;
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2200)}
+function today(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function fmtDate(v){if(!v)return"--";const [y,m,d]=v.split("-");return d+"/"+m+"/"+y}
+function code(){return"REC-"+String(Date.now()).slice(-6)}
+
+const loginScreen=$("loginScreen"),loginForm=$("loginForm"),loginUser=$("loginUser"),loginPass=$("loginPass"),loginError=$("loginError"),showPassBtn=$("showPassBtn");
+const users={jaider:{pass:"1234",name:"Jaider Terán"},william:{pass:"1234",name:"William Rueda"},demo:{pass:"demo",name:"Invitado"}};
+showPassBtn.addEventListener("click",()=>{const v=loginPass.type==="text";loginPass.type=v?"password":"text";showPassBtn.textContent=v?"Ver contraseña":"Ocultar contraseña"});
+loginForm.addEventListener("submit",e=>{e.preventDefault();const u=loginUser.value.trim().toLowerCase(),p=loginPass.value.trim(),a=users[u];if(!a||a.pass!==p){loginError.textContent="Usuario o contraseña incorrectos.";return}const b=loginForm.querySelector('button[type="submit"]');b.disabled=true;b.textContent="✓ Acceso autorizado...";currentUserName=a.name;$("profileName").textContent=a.name;$("profileAvatar").textContent=a.name.charAt(0);loginError.textContent="";setTimeout(()=>{loginScreen.classList.add("hidden");b.disabled=false;b.textContent="Ingresar a RECOMENTA →";toast("👋 Bienvenido, "+a.name)},350)});
+$("logoutBtn").addEventListener("click",()=>{currentUserName="Invitado";chosenRestaurant=null;lastReservation=null;$("profileName").textContent="Usuario";$("profileAvatar").textContent="U";loginUser.value="";loginPass.value="";resetTrip();resetFinal();$("selectionPanel").classList.remove("show");loginScreen.classList.remove("hidden")});
+
+function score(r){const ty=$("tipo").value,bu=+$("presupuesto").value,di=$("dieta").value,ds=+$("distancia").value;let p=0;p+=(ty==="cualquiera"||r.type===ty)?30:10;p+=r.price<=bu?25:r.price<=bu*1.2?14:0;p+=r.km<=ds?20:r.km<=ds+2?10:0;p+=(di==="ninguna"||r.diets.includes(di))?15:0;p+=r.rating>=4.8?10:r.rating>=4.6?8:6;return Math.min(100,p)}
+function metrics(r){const bu=+$("presupuesto").value,ds=+$("distancia").value;return{rating:Math.round(r.rating/5*100),budget:Math.min(100,r.price<=bu?100:Math.round(bu/r.price*100)),distance:Math.min(100,r.km<=ds?100:Math.round(ds/r.km*100))}}
+
+function renderRestaurants(list){filtered=list;const g=$("restaurantGrid");g.innerHTML="";$("resultCount").textContent=list.length+(list.length===1?" opción":" opciones");list.forEach(r=>{const sel=chosenRestaurant&&chosenRestaurant.name===r.name,el=document.createElement("article");el.className="restaurant-card"+(sel?" selected":"");el.innerHTML=`<div class="cover ${r.cover}">${sel?'<div class="selected-ribbon">✓ ELEGIDO</div>':""}<button class="fav" type="button">♡</button><span>${r.emoji}</span></div><div class="card-body"><h3>${esc(r.name)}</h3><div class="rating-row">⭐ <b>${r.rating}</b><span style="color:var(--muted)">(${r.reviews})</span><span class="badge" style="margin-left:auto">${score(r)}% match</span></div><div class="meta"><span>📍 ${r.km} km</span><span>💲 ${money(r.price)}</span></div><div class="meta">${r.diets.length?r.diets.map(d=>`<span class="badge">${esc(d)}</span>`).join(""):'<span class="badge">Sin restricción</span>'}</div><div class="card-actions"><button class="menu" type="button">Ver menú</button><button class="choosebtn" type="button" style="background:var(--orange-soft);color:#6d4500">✓ Elegir</button><button class="routebtn" type="button">Cómo llegar</button></div></div>`;el.querySelector(".fav").onclick=e=>{e.currentTarget.textContent=e.currentTarget.textContent==="♡"?"♥":"♡";toast("❤️ Favorito actualizado")};el.querySelector(".menu").onclick=()=>toast("📋 "+r.name+" · Plato estrella: "+r.dish);el.querySelector(".choosebtn").onclick=()=>selectRestaurant(r,true);el.querySelector(".routebtn").onclick=()=>{selectRestaurant(r,false);chooseDestination(r);$("map").scrollIntoView({behavior:"smooth",block:"center"})};g.appendChild(el)});renderVotes(list.slice(0,3))}
+function selectRestaurant(r,scroll){chosenRestaurant=r;const m=score(r);$("selectionPanel").classList.add("show");$("selectionEmoji").textContent=r.emoji;$("selectionName").textContent=r.name;$("selectionInfo").textContent=r.type+" · "+money(r.price)+" por persona · "+r.km+" km · ⭐ "+r.rating;$("selectionMatch").textContent=m+"%";updateFinal(r);renderRestaurants(filtered);toast("✅ "+r.name+" quedó seleccionado");if(scroll)$("decisionSection").scrollIntoView({behavior:"smooth",block:"start"})}
+function applyFilters(){const ty=$("tipo").value,bu=+$("presupuesto").value,di=$("dieta").value,ds=+$("distancia").value;let l=restaurants.filter(r=>(ty==="cualquiera"||r.type===ty)&&r.price<=bu&&r.km<=ds&&(di==="ninguna"||r.diets.includes(di))).sort((a,b)=>score(b)-score(a));if(!l.length){l=restaurants.map(r=>({...r,_s:score(r)})).sort((a,b)=>b._s-a._s).slice(0,6);$("resultText").textContent="No hubo coincidencia exacta; mostramos las mejores alternativas."}else $("resultText").textContent="Opciones ordenadas por compatibilidad.";renderRestaurants(l)}
+$("buscarBtn").onclick=applyFilters;$("locationBtn").onclick=()=>{toast("🎯 Ubicación simulada detectada en Bucaramanga");$("map").scrollIntoView({behavior:"smooth"})};
+document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));c.classList.add("active");$("tipo").value=c.dataset.type;applyFilters()});
+function renderVotes(list){const b=$("voteList");b.innerHTML="";list.forEach(r=>{votes[r.name]??=0;const tot=Math.max(1,list.reduce((s,x)=>s+(votes[x.name]||0),0)),pc=Math.round(votes[r.name]/tot*100),d=document.createElement("div");d.className="vote-item";d.innerHTML=`<div class="vote-row"><span>${r.emoji} ${esc(r.name)}</span><button class="btn btn-light" type="button" style="padding:6px 9px">+1</button></div><div class="vote-bar"><div class="vote-fill" style="width:${pc}%"></div></div><div style="font-size:11px;color:var(--muted);margin-top:5px">${votes[r.name]} votos</div>`;d.querySelector("button").onclick=()=>{votes[r.name]++;renderVotes(list)};b.appendChild(d)})}
+
+function updateFinal(r){const ma=score(r),m=metrics(r);$("finalRestaurant").textContent=r.emoji+" "+r.name;$("finalDish").textContent="Plato recomendado: "+r.dish;$("finalRating").textContent="⭐ "+r.rating+"/5";$("finalPrice").textContent=money(r.price);$("finalDistance").textContent=r.km+" km";$("matchRing").style.setProperty("--pct",ma);$("matchRingText").textContent=ma+"%";[["Rating",m.rating],["Budget",m.budget],["Distance",m.distance]].forEach(([k,v])=>{$("metric"+k).style.width=v+"%";$("metric"+k+"Text").textContent=v+"%"});$("reasonList").innerHTML=`<div>✓ Calificación destacada</div><div>${r.price<=+$("presupuesto").value?"✓":"≈"} Presupuesto ${r.price<=+$("presupuesto").value?"compatible":"cercano"}</div><div>${r.km<=+$("distancia").value?"✓":"≈"} Distancia ${r.km<=+$("distancia").value?"ideal":"aceptable"}</div>`;$("openReportBtn").disabled=false;updateReport()}
+function resetFinal(){$("finalRestaurant").textContent="Aún no has elegido restaurante";$("finalDish").textContent="Usa los resultados para seleccionar tu opción ideal.";$("finalRating").textContent="--";$("finalPrice").textContent="--";$("finalDistance").textContent="--";$("matchRing").style.setProperty("--pct",0);$("matchRingText").textContent="0%";["Rating","Budget","Distance"].forEach(k=>{$("metric"+k).style.width="0%";$("metric"+k+"Text").textContent="0%"});$("reservationStatus").innerHTML='<div class="big-icon">🪑</div><div><strong>Sin reserva todavía</strong><span>Cuando confirmes una mesa aparecerá aquí el resultado.</span></div>';$("openReportBtn").disabled=true}
+$("selectionRouteBtn").onclick=()=>{if(chosenRestaurant){chooseDestination(chosenRestaurant);$("map").scrollIntoView({behavior:"smooth"})}};$("selectionReserveBtn").onclick=()=>openReservation();
+
+function buildRoute(d){const sx=gpsOrigin.x,sy=gpsOrigin.y,ex=d.x,ey=d.y,dir=ex>=sx?1:-1;return[{x:sx,y:sy},{x:sx+8*dir,y:sy-1},{x:sx+8*dir,y:sy-12},{x:sx+(ex-sx)*.58,y:sy-12},{x:sx+(ex-sx)*.58,y:ey+(sy-ey)*.2},{x:ex,y:ey}]}
+function routeDistance(p){let d=0;for(let i=1;i<p.length;i++)d+=Math.hypot(p[i].x-p[i-1].x,p[i].y-p[i-1].y);return Math.max(.8,d/10.5)}
+function chooseDestination(r){if(!chosenRestaurant||chosenRestaurant.name!==r.name)selectRestaurant(r,false);selectedPlace={name:r.name,x:+r.x,y:+r.y};routePoints=buildRoute(selectedPlace);const pts=routePoints.map(p=>p.x+","+p.y).join(" ");$("routePath").setAttribute("points",pts);$("routeShadow").setAttribute("points",pts);const km=routeDistance(routePoints),mi=Math.max(4,Math.ceil(km*3.1));$("tripTitle").textContent=r.name;$("tripInfo").textContent="Ruta GPS simulada calculada.";$("distanceLeft").textContent=km.toFixed(1)+" km";$("etaLeft").textContent=mi+" min";$("turnInstruction").textContent="Dirígete a la vía principal";$("tripState").textContent="Ruta lista";$("tripProgress").style.width="0%";$("vehicle").style.display="none";$("startTrip").disabled=false;$("pauseTrip").disabled=true;$("reserveBtn").disabled=false}
+document.querySelectorAll(".map-pin").forEach(pin=>pin.querySelector("button").onclick=()=>{const r=restaurants.find(x=>x.name===pin.dataset.name);if(r)chooseDestination(r)});
+function pointAt(p,t){const ls=[];let total=0;for(let i=1;i<p.length;i++){const l=Math.hypot(p[i].x-p[i-1].x,p[i].y-p[i-1].y);ls.push(l);total+=l}let x=t*total;for(let i=0;i<ls.length;i++){if(x<=ls[i]){const a=p[i],b=p[i+1],u=x/ls[i];return{x:a.x+(b.x-a.x)*u,y:a.y+(b.y-a.y)*u,s:i}}x-=ls[i]}return{...p[p.length-1],s:p.length-2}}
+$("startTrip").onclick=()=>{if(!selectedPlace)return;if(animation)cancelAnimationFrame(animation);tripRunning=true;tripPaused=false;tripStartTime=null;pauseAccumulated=0;const km=routeDistance(routePoints),dur=8000,v=$("vehicle");v.style.display="grid";$("pauseTrip").disabled=false;$("tripState").textContent="En ruta";function step(ts){if(!tripRunning)return;if(tripPaused){animation=requestAnimationFrame(step);return}if(!tripStartTime)tripStartTime=ts;const t=Math.min(1,(ts-tripStartTime-pauseAccumulated)/dur),p=pointAt(routePoints,t),rect=$("map").getBoundingClientRect();v.style.left=(rect.width*p.x/100-20)+"px";v.style.top=(rect.height*p.y/100-20)+"px";$("tripProgress").style.width=Math.round(t*100)+"%";$("distanceLeft").textContent=(km*(1-t)).toFixed(1)+" km";$("etaLeft").textContent=Math.max(0,Math.ceil((1-t)*km*3.1))+" min";$("turnInstruction").textContent=["Sigue derecho","Gira a la izquierda","Continúa por la vía principal","Gira a la derecha","Destino más adelante"][Math.min(p.s,4)];$("speedValue").textContent=t>=1?0:Math.round(34+10*Math.sin(t*10));if(t<1)animation=requestAnimationFrame(step);else{tripRunning=false;$("tripState").textContent="Llegaste";$("distanceLeft").textContent="0.0 km";$("etaLeft").textContent="0 min";toast("🏁 Has llegado a "+selectedPlace.name)}}animation=requestAnimationFrame(step)};
+$("pauseTrip").onclick=()=>{if(!tripRunning)return;tripPaused=!tripPaused;if(tripPaused){pauseStarted=performance.now();$("pauseTrip").textContent="▶ Continuar"}else{pauseAccumulated+=performance.now()-pauseStarted;$("pauseTrip").textContent="⏸ Pausar"}};
+function resetTrip(){if(animation)cancelAnimationFrame(animation);tripRunning=false;tripPaused=false;selectedPlace=null;routePoints=[];$("routePath").setAttribute("points","");$("routeShadow").setAttribute("points","");$("vehicle").style.display="none";$("tripProgress").style.width="0%";$("speedValue").textContent="0";$("tripTitle").textContent="Selecciona un restaurante";$("tripInfo").textContent="Elige un marcador para simular la ruta.";$("tripState").textContent="Sin ruta";$("distanceLeft").textContent="-- km";$("etaLeft").textContent="-- min";$("turnInstruction").textContent="Esperando destino";$("startTrip").disabled=true;$("pauseTrip").disabled=true;$("reserveBtn").disabled=true}
+
+function openReservation(){if(!chosenRestaurant){toast("🍽 Primero selecciona un restaurante");return}chosenTable="";$("reserveRestaurantTitle").textContent="Reserva en "+chosenRestaurant.name+" · elige una mesa.";$("reserveSumRest").textContent=chosenRestaurant.name;$("reserveSumTable").textContent="Sin elegir";document.querySelectorAll(".table-seat").forEach(t=>t.classList.remove("selected"));$("reserveModal").classList.add("show")}
+$("reserveBtn").onclick=openReservation;["closeReserve","cancelReserve"].forEach(id=>$(id).onclick=()=>$("reserveModal").classList.remove("show"));$("reservePeople").onchange=()=>$("reserveSumPeople").textContent=$("reservePeople").value;document.querySelectorAll(".table-seat:not(.busy)").forEach(b=>b.onclick=()=>{document.querySelectorAll(".table-seat").forEach(t=>t.classList.remove("selected"));b.classList.add("selected");chosenTable=b.dataset.table;$("reserveSumTable").textContent=chosenTable;toast("🪑 Mesa "+chosenTable+" seleccionada")});
+$("confirmReserve").onclick=()=>{if(!chosenTable){toast("🪑 Debes escoger una mesa");return}if(!$("reserveDate").value){toast("📅 Selecciona una fecha");return}lastReservation={code:code(),restaurant:chosenRestaurant.name,dish:chosenRestaurant.dish,user:currentUserName,table:chosenTable,date:$("reserveDate").value,time:$("reserveTime").value,people:$("reservePeople").value,zone:$("reserveZone").value};$("reserveModal").classList.remove("show");showConfirm();updateReservation();updateReport()};
+function showConfirm(){const r=lastReservation;$("ticketCode").textContent=r.code;$("ticketRestaurant").textContent=r.restaurant;$("ticketDish").textContent="Recomendado: "+r.dish;$("ticketUser").textContent=r.user;$("ticketTable").textContent=r.table;$("ticketDateTime").textContent=fmtDate(r.date)+" · "+r.time;$("ticketPeople").textContent=r.people+" personas";$("ticketZone").textContent=r.zone;const q=$("qrDemo");q.innerHTML="";[1,1,1,0,1,1,1,1,0,1,0,1,0,1,1,1,0,1,1,1,1,0,0,1,0,1,0,0,1,1,1,0,1,1,0,1,0,1,1,0,1,1,1,1,0,1,1,1,1].forEach(v=>{const i=document.createElement("i");if(!v)i.className="blank";q.appendChild(i)});$("confirmModal").classList.add("show")}
+$("closeConfirm").onclick=()=>$("confirmModal").classList.remove("show");$("openReportFromConfirm").onclick=()=>{$("confirmModal").classList.remove("show");openReport()};
+function updateReservation(){if(lastReservation)$("reservationStatus").innerHTML=`<div class="big-icon">✅</div><div><strong>Reserva confirmada · ${esc(lastReservation.code)}</strong><span>Mesa ${esc(lastReservation.table)} · ${fmtDate(lastReservation.date)} · ${esc(lastReservation.time)} · ${esc(lastReservation.people)} personas</span></div>`}
+
+function updateReport(){if(!chosenRestaurant)return;const r=chosenRestaurant,ma=score(r),m=metrics(r),res=lastReservation;$("reportRestaurant").textContent=r.name;$("reportRating").textContent="⭐ "+r.rating+"/5";$("reportPrice").textContent=money(r.price);$("reportDistance").textContent=r.km+" km";$("reportDish").textContent=r.dish;$("reportMatch").textContent=ma+"%";$("reportUser").textContent=currentUserName;$("reportReservationCode").textContent=res?res.code:"SIN RESERVA";$("reportTable").textContent=res?res.table:"--";$("reportDate").textContent=res?fmtDate(res.date):"--";$("reportTime").textContent=res?res.time:"--";$("reportPeople").textContent=res?res.people:"--";$("reportZone").textContent=res?res.zone:"--";[["Rating",m.rating],["Budget",m.budget],["Distance",m.distance]].forEach(([k,v])=>{$("reportBar"+k).style.width=v+"%";$("reportBar"+k+"Text").textContent=v+"%"});$("reportConclusion").textContent=`RECOMENTA identificó a ${r.name} como una opción con ${ma}% de compatibilidad. Tiene calificación ${r.rating}/5, está a ${r.km} km y cuesta aproximadamente ${money(r.price)} por persona.${res?` La reserva quedó confirmada en la mesa ${res.table} para ${res.people} personas.`:" Aún no se ha confirmado una reserva."}`}
+function openReport(){if(!chosenRestaurant){toast("Primero selecciona un restaurante");return}updateReport();$("reportModal").classList.add("show")}
+$("openReportBtn").onclick=openReport;$("closeReport").onclick=()=>$("reportModal").classList.remove("show");$("printReport").onclick=()=>window.print();
+$("downloadReportBtn").onclick=()=>{if(!chosenRestaurant)return;updateReport();const r=chosenRestaurant,res=lastReservation,h=`<!doctype html><meta charset="utf-8"><title>Reporte RECOMENTA</title><style>body{font-family:Arial;max-width:800px;margin:auto;padding:30px;color:#17312d}.box{border:1px solid #ddd;border-radius:12px;padding:15px;margin:12px 0}h1{color:#0e766f}</style><h1>RECOMENTA</h1><h2>Reporte de decisión y reserva</h2><div class="box"><h3>${esc(r.name)}</h3><p>Compatibilidad: <b>${score(r)}%</b></p><p>⭐ ${r.rating}/5 · ${money(r.price)} · ${r.km} km</p><p>Plato recomendado: ${esc(r.dish)}</p></div><div class="box"><h3>Reserva</h3>${res?`<p><b>CONFIRMADA ✓ ${esc(res.code)}</b></p><p>Mesa ${esc(res.table)} · ${esc(res.people)} personas</p><p>${fmtDate(res.date)} · ${esc(res.time)} · ${esc(res.zone)}</p>`:"<p>Sin reserva.</p>"}</div><p>Jaider Terán & William Rueda · Colegio Militar General Santander</p>`;const blob=new Blob([h],{type:"text/html;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="Reporte_RECOMENTA.html";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast("⬇ Reporte descargado")};
+
+const rm=$("reviewModal");$("reviewBtn").onclick=()=>rm.classList.add("show");$("closeReview").onclick=()=>rm.classList.remove("show");restaurants.forEach(r=>{const o=document.createElement("option");o.value=r.name;o.textContent=r.name;$("reviewRestaurant").appendChild(o)});$("saveReview").onclick=()=>{const tx=$("reviewText").value.trim();if(!tx){toast("✍️ Escribe un comentario");return}const d=document.createElement("div");d.className="review";d.innerHTML=`<strong>${esc(currentUserName)} · ${esc($("reviewStars").value)}</strong>${esc(tx)} · <b>${esc($("reviewRestaurant").value)}</b>`;$("reviews").prepend(d);$("reviewText").value="";rm.classList.remove("show");toast("✅ Reseña publicada")};
+
+const logo=document.querySelector(".brand img");if(logo)$("reportLogo").src=logo.src;
+renderRestaurants(restaurants.slice(0,6));resetTrip();resetFinal();$("reserveDate").value=today();$("reserveDate").min=today();loginScreen.classList.remove("hidden");
 })();
 
 </script>
