@@ -371,6 +371,52 @@ a{color:inherit;text-decoration:none}
 @media print{body *{visibility:hidden!important}#reportModal,#reportModal *{visibility:visible!important}#reportModal{position:absolute!important;inset:0!important;background:white!important;display:block!important}.report-modal-card{box-shadow:none!important;max-height:none!important;width:100%!important}.report-paper{margin:0!important;border:0!important}.no-print{display:none!important}}
 @media(max-width:800px){.decision-grid,.reserve-grid,.report-columns{grid-template-columns:1fr}.reserve-fields{grid-template-columns:1fr}.reserve-summary{grid-template-columns:1fr 1fr}.tables-map{grid-template-columns:repeat(2,1fr)}.selection-main{grid-template-columns:auto 1fr}.compat-pill{grid-column:1/-1}}
 
+
+.chooser-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.chooser-card{
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:14px;
+  background:white;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:12px;
+  align-items:center;
+  transition:.18s transform,.18s border-color,.18s box-shadow;
+}
+.chooser-card:hover{
+  transform:translateY(-2px);
+  border-color:var(--teal);
+  box-shadow:0 12px 24px rgba(17,153,142,.12);
+}
+.chooser-icon{
+  width:58px;height:58px;border-radius:16px;
+  display:grid;place-items:center;
+  font-size:32px;
+  background:linear-gradient(145deg,var(--orange-soft),var(--teal-soft));
+}
+.chooser-card h4{margin:0 0 4px;font-size:15px}
+.chooser-card p{margin:0;color:var(--muted);font-size:11px;line-height:1.45}
+.chooser-card .chooser-score{
+  display:inline-block;margin-top:7px;
+  padding:5px 7px;border-radius:999px;
+  background:var(--teal-soft);color:var(--teal-dark);
+  font-size:10px;font-weight:900;
+}
+.chooser-card button{
+  grid-column:1/-1;
+  border:0;border-radius:11px;padding:10px;
+  background:linear-gradient(135deg,var(--teal),var(--teal-dark));
+  color:#fff;font-weight:900;
+}
+@media(max-width:650px){
+  .chooser-grid{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -595,7 +641,7 @@ a{color:inherit;text-decoration:none}
         <div class="trip-actions">
           <button class="btn btn-primary" id="startTrip" disabled>▶ Iniciar ruta</button>
           <button class="btn btn-light" id="pauseTrip" disabled>⏸ Pausar</button>
-          <button class="btn btn-orange" id="reserveBtn" disabled>🗓 Reservar mesa</button>
+          <button class="btn btn-orange" id="reserveBtn" type="button">🍽 Elegir y reservar</button>
         </div>
       </div>
     </div>
@@ -684,6 +730,27 @@ a{color:inherit;text-decoration:none}
   </div>
 </div>
 
+
+
+<div class="modal" id="restaurantChooserModal">
+  <div class="reserve-modal-card" style="max-width:760px">
+    <div class="reserve-head">
+      <div>
+        <h2>🍽 ¿Dónde quieres reservar?</h2>
+        <p>Escoge uno de los restaurantes recomendados y continúa con la reserva de mesa.</p>
+      </div>
+      <button class="reserve-close" id="closeRestaurantChooser" type="button">×</button>
+    </div>
+
+    <div class="reserve-body">
+      <div id="chooserRestaurants" class="chooser-grid"></div>
+
+      <div style="margin-top:14px;padding:12px;border-radius:14px;background:#f7fbfa;border:1px dashed var(--border);font-size:12px;color:var(--muted)">
+        💡 RECOMENTA ordena estas opciones según tus filtros, calificación, presupuesto y cercanía.
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="modal" id="reserveModal">
   <div class="reserve-modal-card">
@@ -794,15 +861,68 @@ $("selectionRouteBtn").onclick=()=>{if(chosenRestaurant){chooseDestination(chose
 
 function buildRoute(d){const sx=gpsOrigin.x,sy=gpsOrigin.y,ex=d.x,ey=d.y,dir=ex>=sx?1:-1;return[{x:sx,y:sy},{x:sx+8*dir,y:sy-1},{x:sx+8*dir,y:sy-12},{x:sx+(ex-sx)*.58,y:sy-12},{x:sx+(ex-sx)*.58,y:ey+(sy-ey)*.2},{x:ex,y:ey}]}
 function routeDistance(p){let d=0;for(let i=1;i<p.length;i++)d+=Math.hypot(p[i].x-p[i-1].x,p[i].y-p[i-1].y);return Math.max(.8,d/10.5)}
-function chooseDestination(r){if(!chosenRestaurant||chosenRestaurant.name!==r.name)selectRestaurant(r,false);selectedPlace={name:r.name,x:+r.x,y:+r.y};routePoints=buildRoute(selectedPlace);const pts=routePoints.map(p=>p.x+","+p.y).join(" ");$("routePath").setAttribute("points",pts);$("routeShadow").setAttribute("points",pts);const km=routeDistance(routePoints),mi=Math.max(4,Math.ceil(km*3.1));$("tripTitle").textContent=r.name;$("tripInfo").textContent="Ruta GPS simulada calculada.";$("distanceLeft").textContent=km.toFixed(1)+" km";$("etaLeft").textContent=mi+" min";$("turnInstruction").textContent="Dirígete a la vía principal";$("tripState").textContent="Ruta lista";$("tripProgress").style.width="0%";$("vehicle").style.display="none";$("startTrip").disabled=false;$("pauseTrip").disabled=true;$("reserveBtn").disabled=false}
+function chooseDestination(r){if(!chosenRestaurant||chosenRestaurant.name!==r.name)selectRestaurant(r,false);selectedPlace={name:r.name,x:+r.x,y:+r.y};routePoints=buildRoute(selectedPlace);const pts=routePoints.map(p=>p.x+","+p.y).join(" ");$("routePath").setAttribute("points",pts);$("routeShadow").setAttribute("points",pts);const km=routeDistance(routePoints),mi=Math.max(4,Math.ceil(km*3.1));$("tripTitle").textContent=r.name;$("tripInfo").textContent="Ruta GPS simulada calculada.";$("distanceLeft").textContent=km.toFixed(1)+" km";$("etaLeft").textContent=mi+" min";$("turnInstruction").textContent="Dirígete a la vía principal";$("tripState").textContent="Ruta lista";$("tripProgress").style.width="0%";$("vehicle").style.display="none";$("startTrip").disabled=false;$("pauseTrip").disabled=true;$("reserveBtn").disabled=false;$("reserveBtn").textContent="🍽 Reservar mesa"}
 document.querySelectorAll(".map-pin").forEach(pin=>pin.querySelector("button").onclick=()=>{const r=restaurants.find(x=>x.name===pin.dataset.name);if(r)chooseDestination(r)});
 function pointAt(p,t){const ls=[];let total=0;for(let i=1;i<p.length;i++){const l=Math.hypot(p[i].x-p[i-1].x,p[i].y-p[i-1].y);ls.push(l);total+=l}let x=t*total;for(let i=0;i<ls.length;i++){if(x<=ls[i]){const a=p[i],b=p[i+1],u=x/ls[i];return{x:a.x+(b.x-a.x)*u,y:a.y+(b.y-a.y)*u,s:i}}x-=ls[i]}return{...p[p.length-1],s:p.length-2}}
 $("startTrip").onclick=()=>{if(!selectedPlace)return;if(animation)cancelAnimationFrame(animation);tripRunning=true;tripPaused=false;tripStartTime=null;pauseAccumulated=0;const km=routeDistance(routePoints),dur=8000,v=$("vehicle");v.style.display="grid";$("pauseTrip").disabled=false;$("tripState").textContent="En ruta";function step(ts){if(!tripRunning)return;if(tripPaused){animation=requestAnimationFrame(step);return}if(!tripStartTime)tripStartTime=ts;const t=Math.min(1,(ts-tripStartTime-pauseAccumulated)/dur),p=pointAt(routePoints,t),rect=$("map").getBoundingClientRect();v.style.left=(rect.width*p.x/100-20)+"px";v.style.top=(rect.height*p.y/100-20)+"px";$("tripProgress").style.width=Math.round(t*100)+"%";$("distanceLeft").textContent=(km*(1-t)).toFixed(1)+" km";$("etaLeft").textContent=Math.max(0,Math.ceil((1-t)*km*3.1))+" min";$("turnInstruction").textContent=["Sigue derecho","Gira a la izquierda","Continúa por la vía principal","Gira a la derecha","Destino más adelante"][Math.min(p.s,4)];$("speedValue").textContent=t>=1?0:Math.round(34+10*Math.sin(t*10));if(t<1)animation=requestAnimationFrame(step);else{tripRunning=false;$("tripState").textContent="Llegaste";$("distanceLeft").textContent="0.0 km";$("etaLeft").textContent="0 min";toast("🏁 Has llegado a "+selectedPlace.name)}}animation=requestAnimationFrame(step)};
 $("pauseTrip").onclick=()=>{if(!tripRunning)return;tripPaused=!tripPaused;if(tripPaused){pauseStarted=performance.now();$("pauseTrip").textContent="▶ Continuar"}else{pauseAccumulated+=performance.now()-pauseStarted;$("pauseTrip").textContent="⏸ Pausar"}};
-function resetTrip(){if(animation)cancelAnimationFrame(animation);tripRunning=false;tripPaused=false;selectedPlace=null;routePoints=[];$("routePath").setAttribute("points","");$("routeShadow").setAttribute("points","");$("vehicle").style.display="none";$("tripProgress").style.width="0%";$("speedValue").textContent="0";$("tripTitle").textContent="Selecciona un restaurante";$("tripInfo").textContent="Elige un marcador para simular la ruta.";$("tripState").textContent="Sin ruta";$("distanceLeft").textContent="-- km";$("etaLeft").textContent="-- min";$("turnInstruction").textContent="Esperando destino";$("startTrip").disabled=true;$("pauseTrip").disabled=true;$("reserveBtn").disabled=true}
+function resetTrip(){if(animation)cancelAnimationFrame(animation);tripRunning=false;tripPaused=false;selectedPlace=null;routePoints=[];$("routePath").setAttribute("points","");$("routeShadow").setAttribute("points","");$("vehicle").style.display="none";$("tripProgress").style.width="0%";$("speedValue").textContent="0";$("tripTitle").textContent="Selecciona un restaurante";$("tripInfo").textContent="Elige un marcador para simular la ruta.";$("tripState").textContent="Sin ruta";$("distanceLeft").textContent="-- km";$("etaLeft").textContent="-- min";$("turnInstruction").textContent="Esperando destino";$("startTrip").disabled=true;$("pauseTrip").disabled=true;$("reserveBtn").disabled=false;$("reserveBtn").textContent="🍽 Reservar mesa"}
 
-function openReservation(){if(!chosenRestaurant){toast("🍽 Primero selecciona un restaurante");return}chosenTable="";$("reserveRestaurantTitle").textContent="Reserva en "+chosenRestaurant.name+" · elige una mesa.";$("reserveSumRest").textContent=chosenRestaurant.name;$("reserveSumTable").textContent="Sin elegir";document.querySelectorAll(".table-seat").forEach(t=>t.classList.remove("selected"));$("reserveModal").classList.add("show")}
-$("reserveBtn").onclick=openReservation;["closeReserve","cancelReserve"].forEach(id=>$(id).onclick=()=>$("reserveModal").classList.remove("show"));$("reservePeople").onchange=()=>$("reserveSumPeople").textContent=$("reservePeople").value;document.querySelectorAll(".table-seat:not(.busy)").forEach(b=>b.onclick=()=>{document.querySelectorAll(".table-seat").forEach(t=>t.classList.remove("selected"));b.classList.add("selected");chosenTable=b.dataset.table;$("reserveSumTable").textContent=chosenTable;toast("🪑 Mesa "+chosenTable+" seleccionada")});
+function renderRestaurantChooser(){
+  const box=$("chooserRestaurants");
+  box.innerHTML="";
+  const source=(filtered&&filtered.length?filtered:restaurants).slice(0,6);
+
+  source.forEach(r=>{
+    const match=typeof scoreRestaurant==="function"?scoreRestaurant(r):Math.round((r.rating/5)*100);
+    const card=document.createElement("article");
+    card.className="chooser-card";
+    card.innerHTML=`
+      <div class="chooser-icon">${r.emoji}</div>
+      <div>
+        <h4>${escapeHtml(r.name)}</h4>
+        <p>⭐ ${r.rating} · 📍 ${r.km} km · 💲 ${money(r.price)}</p>
+        <span class="chooser-score">${match}% compatibilidad</span>
+      </div>
+      <button type="button">Seleccionar y reservar →</button>`;
+    card.querySelector("button").onclick=()=>{
+      chosenRestaurant=r;
+      if(typeof selectRestaurant==="function") selectRestaurant(r,false);
+      $("restaurantChooserModal").classList.remove("show");
+      openReservation();
+    };
+    box.appendChild(card);
+  });
+}
+
+function openReservation(){
+  if(!chosenRestaurant){
+    renderRestaurantChooser();
+    $("restaurantChooserModal").classList.add("show");
+    return;
+  }
+
+  chosenTable="";
+  $("reserveRestaurantTitle").textContent="Reserva en "+chosenRestaurant.name+" · elige una mesa.";
+  $("reserveSumRest").textContent=chosenRestaurant.name;
+  $("reserveSumTable").textContent="Sin elegir";
+  $("reserveSumPeople").textContent=$("reservePeople").value;
+  document.querySelectorAll(".table-seat").forEach(t=>t.classList.remove("selected"));
+  $("reserveDate").value=$("reserveDate").value||todayISO();
+  $("reserveDate").min=todayISO();
+  $("reserveModal").classList.add("show");
+}
+$("reserveBtn").onclick=openReservation;
+$("closeRestaurantChooser").onclick=()=>$("restaurantChooserModal").classList.remove("show");
+["closeReserve","cancelReserve"].forEach(id=>$(id).onclick=()=>$("reserveModal").classList.remove("show"));
+$("reservePeople").onchange=()=>$("reserveSumPeople").textContent=$("reservePeople").value;
+document.querySelectorAll(".table-seat:not(.busy)").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll(".table-seat").forEach(t=>t.classList.remove("selected"));
+  b.classList.add("selected");
+  chosenTable=b.dataset.table;
+  $("reserveSumTable").textContent=chosenTable;
+  toast("🪑 Mesa "+chosenTable+" seleccionada");
+});
 $("confirmReserve").onclick=()=>{if(!chosenTable){toast("🪑 Debes escoger una mesa");return}if(!$("reserveDate").value){toast("📅 Selecciona una fecha");return}lastReservation={code:code(),restaurant:chosenRestaurant.name,dish:chosenRestaurant.dish,user:currentUserName,table:chosenTable,date:$("reserveDate").value,time:$("reserveTime").value,people:$("reservePeople").value,zone:$("reserveZone").value};$("reserveModal").classList.remove("show");showConfirm();updateReservation();updateReport()};
 function showConfirm(){const r=lastReservation;$("ticketCode").textContent=r.code;$("ticketRestaurant").textContent=r.restaurant;$("ticketDish").textContent="Recomendado: "+r.dish;$("ticketUser").textContent=r.user;$("ticketTable").textContent=r.table;$("ticketDateTime").textContent=fmtDate(r.date)+" · "+r.time;$("ticketPeople").textContent=r.people+" personas";$("ticketZone").textContent=r.zone;const q=$("qrDemo");q.innerHTML="";[1,1,1,0,1,1,1,1,0,1,0,1,0,1,1,1,0,1,1,1,1,0,0,1,0,1,0,0,1,1,1,0,1,1,0,1,0,1,1,0,1,1,1,1,0,1,1,1,1].forEach(v=>{const i=document.createElement("i");if(!v)i.className="blank";q.appendChild(i)});$("confirmModal").classList.add("show")}
 $("closeConfirm").onclick=()=>$("confirmModal").classList.remove("show");$("openReportFromConfirm").onclick=()=>{$("confirmModal").classList.remove("show");openReport()};
@@ -816,7 +936,7 @@ $("downloadReportBtn").onclick=()=>{if(!chosenRestaurant)return;updateReport();c
 const rm=$("reviewModal");$("reviewBtn").onclick=()=>rm.classList.add("show");$("closeReview").onclick=()=>rm.classList.remove("show");restaurants.forEach(r=>{const o=document.createElement("option");o.value=r.name;o.textContent=r.name;$("reviewRestaurant").appendChild(o)});$("saveReview").onclick=()=>{const tx=$("reviewText").value.trim();if(!tx){toast("✍️ Escribe un comentario");return}const d=document.createElement("div");d.className="review";d.innerHTML=`<strong>${esc(currentUserName)} · ${esc($("reviewStars").value)}</strong>${esc(tx)} · <b>${esc($("reviewRestaurant").value)}</b>`;$("reviews").prepend(d);$("reviewText").value="";rm.classList.remove("show");toast("✅ Reseña publicada")};
 
 const logo=document.querySelector(".brand img");if(logo)$("reportLogo").src=logo.src;
-renderRestaurants(restaurants.slice(0,6));resetTrip();resetFinal();$("reserveDate").value=today();$("reserveDate").min=today();loginScreen.classList.remove("hidden");
+renderRestaurants(restaurants.slice(0,6));resetTrip();resetFinal();$("reserveDate").value=today();$("reserveDate").min=today();$("reserveBtn").disabled=false;$("reserveBtn").textContent="🍽 Elegir y reservar";loginScreen.classList.remove("hidden");
 })();
 
 </script>
